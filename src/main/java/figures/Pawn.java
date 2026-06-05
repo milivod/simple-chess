@@ -6,8 +6,8 @@ import Board.*;
 
 public class Pawn extends Figure {
 	
-	public Pawn(String name, boolean isWhite) {
-		super(name,isWhite);
+	public Pawn(String name, boolean isWhite, Square currentSquare) {
+		super(name,isWhite, currentSquare);
 	}
 
 	@Override
@@ -20,7 +20,9 @@ public class Pawn extends Figure {
 		
 		Square oneStep = board.getSquare(x, y);
 		Square twoSteps = board.getSquare(x, (y + forward));
+		
 		int right = x +1, left = x -1;
+		
 		Square rightStep = board.getSquare(right, y);
 		Square leftStep = board.getSquare(left, y);
 		

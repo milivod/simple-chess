@@ -7,8 +7,8 @@ import Board.Square;
 
 public class Knight extends Figure {
 
-	public Knight(String name, boolean isWhite) {
-		super(name, isWhite);
+	public Knight(String name, boolean isWhite, Square currentSquare) {
+		super(name, isWhite, currentSquare);
 		
 	}
 

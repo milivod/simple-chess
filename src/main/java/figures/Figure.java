@@ -11,14 +11,18 @@ public abstract class Figure {
 	protected Square currentSquare;
 	private String name;
 	
-	public Figure(String name,boolean isWhite) {
+	public Figure(String name,boolean isWhite,Square currentSquare) {
 		this.name = name;
-		currentSquare = null;
+		this.currentSquare = currentSquare;
 		this.isWhite = isWhite;
 	}
+	public Square getCurrentSquare() {
+		return currentSquare;
+	}
 	
-	public void setSquare(Square s) {
-		currentSquare = s;
+	public void setNewCurrentSquare(Square newSquare) {
+		currentSquare = newSquare;
+		currentSquare.setFigure(this);
 	}
 	public void moved() {
 		alreadyMoved = true;

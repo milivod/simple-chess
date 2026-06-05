@@ -1,25 +1,20 @@
 package figures;
 
-import java.util.ArrayList;
-
-import Board.Board;
 import Board.Square;
 
-public class Bishop extends Figure{
+public class Bishop extends SlidingFigure{
 
-	public Bishop(String name, boolean isWhite) {
-		super(name, isWhite);
+	public Bishop(String name, boolean isWhite,Square currentSquare) {
+		super(name, isWhite, currentSquare);
 		
 	}
 
 	@Override
-	public ArrayList<Square> getValidMoves(Board board) {
-		
-		int [][] directions = {{1,1},{-1,-1},{-1,1},{1,-1}};
-		
-		
-		
-		
+	protected int[][] directions() {
+		return new int[][] {{1, 1}, {-1, 1}, {1, -1}, {-1, -1}};
 	}
 
+	
+	
+	
 }
