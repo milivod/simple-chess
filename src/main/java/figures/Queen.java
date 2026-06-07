@@ -10,7 +10,7 @@ public class Queen extends SlidingFigure{
 	}
 
 	@Override
-	protected int[][] directions() {
+	protected int[][] getDirections() {
 		return new int [][] {{1, 0}, {-1, 0}, {0, 1}, {0, -1},		//straight
             			  	{1, 1}, {-1, 1}, {1, -1}, {-1, -1}};	//diagonal
 	}

@@ -6,13 +6,13 @@ import Board.*;
 
 public abstract class Figure {
 	
-	protected boolean alreadyMoved = false;
+	protected boolean hasMoved = false;
 	private boolean isWhite;
 	protected Square currentSquare;
-	private String name;
+	private String unicodeSymbol;
 	
-	public Figure(String name,boolean isWhite,Square currentSquare) {
-		this.name = name;
+	public Figure(String unicodeSymbol,boolean isWhite,Square currentSquare) {
+		this.unicodeSymbol = unicodeSymbol;
 		this.currentSquare = currentSquare;
 		this.isWhite = isWhite;
 	}
@@ -25,15 +25,22 @@ public abstract class Figure {
 		currentSquare.setFigure(this);
 	}
 	public void moved() {
-		alreadyMoved = true;
+		hasMoved = true;
 	}
 	
-	public String getName() {
-		return name;
+	public String getSymbol() {
+		return unicodeSymbol;
 	}
 	public boolean isWhite() {
 		return isWhite;
 	}
 	
+	public boolean isEnemy(Figure f) {
+		return this.isWhite != f.isWhite;
+	}
+	
 	public abstract ArrayList<Square> getValidMoves(Board board);
+	protected abstract int[][] getDirections();
+	
+	
 }

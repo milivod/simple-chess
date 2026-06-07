@@ -19,10 +19,7 @@ public class Knight extends Figure {
 		int x = this.currentSquare.getX();
 		int y = this.currentSquare.getY();
 		
-		int[][] knightMoves = {
-		        {2, 1}, {1, 2}, {-1, 2}, {-2, 1},
-		        {2, -1}, {1, -2}, {-1, -2}, {-2, -1}
-		    };
+		int[][] knightMoves = getDirections();
 		
 		for(int[] moves : knightMoves) {
 			int targetX = x + moves[0];
@@ -33,14 +30,22 @@ public class Knight extends Figure {
 			Square target = board.getSquare(targetX, targetY);
 			
 			if(target != null) {
-				if(target.getFigure().isWhite() != this.isWhite()) {
-					validMoves.add(target);
-				}
+				if(target.isEmpty() || target.getFigure().isEnemy(this)) {
+                    validMoves.add(target);
+                }
 			}
 		}
 		return validMoves;
 		
 
+	}
+
+	@Override
+	protected int[][] getDirections() {
+		return new int[][] {
+	        {2, 1}, {1, 2}, {-1, 2}, {-2, 1},
+	        {2, -1}, {1, -2}, {-1, -2}, {-2, -1}
+	    };
 	}
 	
 	

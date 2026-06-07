@@ -11,13 +11,13 @@ public abstract class SlidingFigure extends Figure {
 		super(name,isWhite, currentSquare);
 	}
 	
-	protected abstract int[][] directions();
+	
 	
 	@Override
     public ArrayList<Square> getValidMoves(Board board) {
 		ArrayList<Square> validMoves = new ArrayList<>();
 		
-		int [][] directions = directions();
+		int [][] directions = getDirections();
 		int currentX = this.currentSquare.getX();
 		int currentY = this.currentSquare.getY();
 		int steps = 1;

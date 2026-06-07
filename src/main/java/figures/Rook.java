@@ -10,7 +10,7 @@ public class Rook extends SlidingFigure{
 	}
 
 	@Override
-	protected int[][] directions() {
+	protected int[][] getDirections() {
 		return new int[][] {{1, 0}, {-1, 0}, {0, 1}, {0, -1}};
 	}
 

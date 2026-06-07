@@ -10,7 +10,7 @@ public class Bishop extends SlidingFigure{
 	}
 
 	@Override
-	protected int[][] directions() {
+	protected int[][] getDirections() {
 		return new int[][] {{1, 1}, {-1, 1}, {1, -1}, {-1, -1}};
 	}
 

@@ -7,6 +7,15 @@ public class Board {
 	
 	public Board() {
 		field = new Square[8][8];
+		setupField();
+	}
+	
+	private void setupField() {
+		for (int x = 0; x < 8; x++) {
+			for (int y = 0; y < 8; y++) {
+				field[x][y] = new Square(x, y);
+			}
+		}
 	}
 	
 	

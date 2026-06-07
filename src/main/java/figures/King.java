@@ -14,7 +14,7 @@ public class King extends Figure{
 	
 	}
 		
-	private int [][] directions() {
+	protected int [][] getDirections() {
 		return new int [][] {{1, 0}, {-1, 0}, {0, 1}, {0, -1},		//straight
 		  					{1, 1}, {-1, 1}, {1, -1}, {-1, -1}};	//diagonal
 
@@ -31,7 +31,7 @@ public class King extends Figure{
 	@Override
 	public ArrayList<Square> getValidMoves(Board board) {
 		ArrayList<Square> validMoves = new ArrayList<>();
-		int [][] directions = directions();
+		int [][] directions = getDirections();
 		int currentX = this.currentSquare.getX();
 		int currentY = this.currentSquare.getY();
 		
