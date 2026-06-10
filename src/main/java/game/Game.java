@@ -87,20 +87,20 @@ public class Game {
 	    return history.hasPrevious();
 	}
 	
-	public boolean proofCheck(boolean isWhite) {
-		King k = board.getKing(isWhite);
-		if(board.KingIsTargeted(k.getCurrentSquare(), k)) {
-			k.isInCheck = true;
-			return true;
-		} else {
-			k.isInCheck = false;
-		}
-		return false;
-	}
-	public Square getCheckedSquare() {
-		return board.getCheckedKingsSquare();
-	}
-	
+//	public boolean proofCheck(boolean isWhite) {
+//		King k = board.getKing(isWhite);
+//		if(board.KingIsTargeted(k.getCurrentSquare(), k)) {
+//			k.isInCheck = true;
+//			return true;
+//		} else {
+//			k.isInCheck = false;
+//		}
+//		return false;
+//	}
+//	public Square getCheckedSquare() {
+//		return board.getCheckedKingsSquare();
+//	}
+//	
 	
 }
 		
