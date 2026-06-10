@@ -8,12 +8,17 @@ import Board.Square;
 public class King extends Figure{
 
 	private final int MAX_STEPS = 1;
+	public boolean isInCheck = false;
 	
 	public King(String name, boolean isWhite,Square currentSquare) {
 		super(name, isWhite, currentSquare);
 	
 	}
-		
+
+	public void inCheck() {
+		isInCheck = !isInCheck;
+	}
+	
 	protected int [][] getDirections() {
 		return new int [][] {{1, 0}, {-1, 0}, {0, 1}, {0, -1},		//straight
 		  					{1, 1}, {-1, 1}, {1, -1}, {-1, -1}};	//diagonal

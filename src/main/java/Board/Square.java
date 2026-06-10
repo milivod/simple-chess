@@ -1,8 +1,10 @@
 package Board;
 
+import java.io.Serializable;
+
 import figures.*;
 
-public class Square {
+public class Square implements Serializable{
 
 	private int x,y;
 	

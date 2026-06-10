@@ -20,9 +20,9 @@ public abstract class SlidingFigure extends Figure {
 		int [][] directions = getDirections();
 		int currentX = this.currentSquare.getX();
 		int currentY = this.currentSquare.getY();
-		int steps = 1;
 		
 		for(int[] dir : directions) {
+			int steps = 1;
 			
 			
 			while(true) {

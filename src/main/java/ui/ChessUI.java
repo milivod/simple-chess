@@ -1,13 +1,18 @@
 package ui;
 
+import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.GridLayout;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 
+
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JPanel;
+import java.awt.Dimension;
+import java.awt.Font;
 
 import Board.*;
 import figures.Figure;
@@ -15,12 +20,14 @@ import game.Game;
 
 public class ChessUI extends JFrame {
 
-	    
+	private final Color backgroundColor = new Color(38, 37, 34);
 	private final Color HIGHLIGHT_COLOR = new Color(130, 195, 255);
 	private final Color ENEMY_COLOR = new Color(255, 110, 110);
 	private Game game;
 	private JButton[][] buttonGrid;
 	private Figure selectedFigure = null;
+	private JButton undoButton;
+
 	
 	public ChessUI(Game game) {
 		this.game = game;
@@ -28,12 +35,23 @@ public class ChessUI extends JFrame {
 		
 		setTitle("Simple Chess");
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
-		setSize(800, 800);
+		setSize(1050, 800);
 		
-		setLayout(new GridLayout(8, 8));
+		getContentPane().setBackground(backgroundColor);
 		
-		initializeContent();
+		setLayout(new BorderLayout(10, 0));
+	
+		
+		JPanel boardPanel = new JPanel(new GridLayout(8,8));
+		
+		initializeContent(boardPanel);
+		add(boardPanel, BorderLayout.CENTER);
+		
+		JPanel sidePanel = createSidePanel();
+		add(sidePanel, BorderLayout.EAST);
+		
 		setLocationRelativeTo(null); 
+		
 		setVisible(true);
 	}
 	
@@ -42,15 +60,38 @@ public class ChessUI extends JFrame {
 		updateUI(); 
 	}
 	
-	private void initializeContent() {
+	public JPanel createSidePanel() {
+		JPanel sidePanel = new JPanel(new GridLayout(2,1,10,10));
+		sidePanel.setPreferredSize(new Dimension(200,800));
+		sidePanel.setBackground(backgroundColor);
+
+		undoButton = new JButton("◀◀");
 		
+
+		undoButton.setFont(new Font("Segoe UI", java.awt.Font.BOLD, 20));
+		
+		
+	    undoButton.addActionListener(e -> {
+			game.undo();
+			updateUI();
+			selectedFigure = null;
+		});
+		
+		
+		
+		sidePanel.add(undoButton);
+		return sidePanel;
+	}
+	
+	
+	private void initializeContent(JPanel boardPanel) {		
 		for (int y = 0; y < 8; y++) {
 			for (int x = 0; x < 8; x++) {
 				JButton button = new JButton();
 				button.setFont(new java.awt.Font("Segoe UI Symbol", java.awt.Font.PLAIN, 50));
 			
 				buttonGrid[x][y] = button;
-				add(button);
+				boardPanel.add(button);
 				
 				setSquareColor(x, y);
 				
@@ -122,6 +163,10 @@ public class ChessUI extends JFrame {
 				setSquareColor(x, y);
 			}
 		}
+		if (undoButton != null) {
+	        undoButton.setEnabled(game.canUndo());
+	        
+	    }
 	}
 	
 	private void setSquareColor(int x, int y) {
@@ -132,6 +177,8 @@ public class ChessUI extends JFrame {
 		}
 	}
 
+	
+	
 
 	private void highlightSquare(int x, int y, Color color) {
 		buttonGrid[x][y].setBackground(color);

@@ -6,10 +6,19 @@ import Board.*;
 
 public class Pawn extends Figure {
 	
+	
 	public Pawn(String name, boolean isWhite, Square currentSquare) {
 		super(name,isWhite, currentSquare);
 	}
 
+	public boolean isOnStartPosition() {
+		int y = this.isWhite() ? 6 : 1;
+		if(currentSquare.getY() == y) {
+			return true;
+		}
+		return false;
+	}
+	
 	
 	
 	private boolean isBlockedPath(Square square) {

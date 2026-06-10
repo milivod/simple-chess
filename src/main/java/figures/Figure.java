@@ -1,12 +1,13 @@
 package figures;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 import Board.*;
 
-public abstract class Figure {
+public abstract class Figure implements Serializable {
 	
-	protected boolean hasMoved = false;
+	public boolean hasMoved = false;
 	private boolean isWhite;
 	protected Square currentSquare;
 	private String unicodeSymbol;
@@ -23,9 +24,6 @@ public abstract class Figure {
 	public void setNewCurrentSquare(Square newSquare) {
 		currentSquare = newSquare;
 		currentSquare.setFigure(this);
-	}
-	public void moved() {
-		hasMoved = true;
 	}
 	
 	public String getSymbol() {
