@@ -69,8 +69,7 @@ public class ChessUI extends JFrame {
 		
 
 		undoButton.setFont(new Font("Segoe UI", java.awt.Font.BOLD, 20));
-		
-		
+				
 	    undoButton.addActionListener(e -> {
 			game.undo();
 			updateUI();

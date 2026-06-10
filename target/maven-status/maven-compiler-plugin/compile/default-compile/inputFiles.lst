@@ -1,0 +1,14 @@
+/home/david/eclipse-workspace/simple-chess/src/main/java/Board/Board.java
+/home/david/eclipse-workspace/simple-chess/src/main/java/figures/SlidingFigure.java
+/home/david/eclipse-workspace/simple-chess/src/main/java/ui/ChessUI.java
+/home/david/eclipse-workspace/simple-chess/src/main/java/game/Game.java
+/home/david/eclipse-workspace/simple-chess/src/main/java/figures/Queen.java
+/home/david/eclipse-workspace/simple-chess/src/main/java/Board/Square.java
+/home/david/eclipse-workspace/simple-chess/src/main/java/game/Move.java
+/home/david/eclipse-workspace/simple-chess/src/main/java/figures/Rook.java
+/home/david/eclipse-workspace/simple-chess/src/main/java/figures/Pawn.java
+/home/david/eclipse-workspace/simple-chess/src/main/java/game/GameHistory.java
+/home/david/eclipse-workspace/simple-chess/src/main/java/figures/Bishop.java
+/home/david/eclipse-workspace/simple-chess/src/main/java/figures/Knight.java
+/home/david/eclipse-workspace/simple-chess/src/main/java/figures/Figure.java
+/home/david/eclipse-workspace/simple-chess/src/main/java/figures/King.java

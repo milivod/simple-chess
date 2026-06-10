@@ -1,0 +1,15 @@
+figures/King.class
+figures/Knight.class
+Board/Square.class
+figures/Bishop.class
+game/Game.class
+game/Move.class
+figures/Pawn.class
+game/GameHistory.class
+figures/Queen.class
+figures/Rook.class
+Board/Board.class
+figures/Figure.class
+ui/ChessUI$1.class
+figures/SlidingFigure.class
+ui/ChessUI.class
